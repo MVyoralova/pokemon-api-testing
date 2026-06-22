@@ -2,7 +2,7 @@
 
 ## Přehled
 
-Tento projekt demonstruje **ruční testování API** pomocí Postmanu a veřejného REST API PokéAPI.
+Tento projekt ukazuje **testování API** pomocí Postmanu a veřejného REST API PokéAPI.
 
 Cílem projektu je ukázat:
 - testování REST API
@@ -57,20 +57,27 @@ Cílem projektu je ukázat:
 
 ---
 
-## Výstupy testů
+## Screenshots
 
-### Request – získání Pokémona podle jména
-![Request](images/get-pokemon-request.png)
+### Postman collection
+![Postman collection](images/postman_collection.png)
 
-### Response
-![Response](images/get-pokemon-response.png)
+### API Request & Response Example
+![popis](images/pokemon_by_name_happy.png)
+![popis](images/pokemon_by_name_negative.png)
 
-### Testy v Postmanu
-![Testy](images/postman-tests.png)
+### Automated test
+![Automated test](images/pokemon_by_name_happy._automat_test.png)
+![Automated test](images/pokemon_by_name_negative_autom_test.png)
 
 ---
+## Závěr testování
 
-## Struktura projektu
+Na základě provedených testů bylo ověřeno, že API PokéAPI funguje správně pro pozitivní i negativní scénáře.
 
-- images/ – screenshoty z Postmanu  
-- README.md – dokumentace projektu  
+### Shrnutí výsledků:
+- API vrací správné HTTP status kódy (200 pro validní požadavky, 404 pro neplatné vstupy)
+- JSON odpovědi mají očekávanou strukturu a datové typy
+- Negativní scénáře jsou správně ošetřeny chybovými odpověďmi
+
+Testování neodhalilo žádné kritické chyby.
