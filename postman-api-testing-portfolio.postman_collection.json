@@ -1,0 +1,234 @@
+{
+  "info": {
+    "_postman_id": "b5d55a5d-824b-4b4f-9129-91e4e9592ae1",
+    "name": "postman-api-testing-portfolio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48977361",
+    "_collection_link": "https://go.postman.co/collection/48977361-b5d55a5d-824b-4b4f-9129-91e4e9592ae1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "All_pokemon_Happy_path",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon",
+          "protocol": "https",
+          "host": [
+            "pokeapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "pokemon"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pokemon_by_name_Happy_path",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "const data = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Pokemon name is Pikachu\", function () {\r",
+              "    pm.expect(data.name).to.eql(\"pikachu\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+          "protocol": "https",
+          "host": [
+            "pokeapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "pokemon",
+            "pikachu"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get_pokemon_ID_happy_path",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              " const data = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Pokemon ID is 25\", function () {\r",
+              "    pm.expect(data.id).to.eql(25);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/pokemon/25",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "pokemon",
+            "25"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pokemon_by_type",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Pokemon_by_name_negative_test",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/pokemon/ups23",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "pokemon",
+            "ups23"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get_pokemon_ID_negative_test",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/pokemon/025",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "pokemon",
+            "025"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "https://pokeapi.co/api/v2"
+    }
+  ]
+}
